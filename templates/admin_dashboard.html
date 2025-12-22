@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Loan Applications Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+<body class="admin-body">
+  <header class="admin-header">
+    <h1>Customer Loan Applications</h1>
+    <nav>
+      <a href="{{ url_for('admin_dashboard') }}">Dashboard</a>
+      <a href="{{ url_for('admin_tune') }}">Tune My Chatbot</a>
+      <a href="{{ url_for('admin_logs') }}">Activity Logs</a>
+      <a href="{{ url_for('admin_logout') }}">Logout</a>
+    </nav>
+  </header>
+
+  <main class="admin-main">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Submitted At</th>
+          <th>Session ID</th>
+          <th>Name</th>
+          <th>Contact</th>
+          <th>City</th>
+          <th>Loan Amount</th>
+          <th>Status</th>
+          <th>Rejection Reason</th>
+          <th>Files</th>
+          <th>Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for app in applications %}
+        <tr>
+          <td>{{ app.timestamp }}</td>
+          <td>{{ app.session_id }}</td>
+          <td>{{ app.full_name }}</td>
+          <td>
+            {{ app.phone }}<br>
+            <span class="muted">{{ app.email }}</span>
+          </td>
+          <td>{{ app.city }}</td>
+          <td>{{ app.loan_amount }}</td>
+          <td>
+            <span class="status-badge status-{{ app.status | lower | replace(' ', '_') }}">
+              {{ app.status }}
+            </span>
+          </td>
+          <td>{{ app.rejection_reason }}</td>
+          <td>
+            {% if app.attached_files %}
+              {% set files = app.attached_files | safe | load_json %}
+              {% for f in files %}
+                <a href="{{ url_for('uploaded_file', filename=f) }}" target="_blank">File {{ loop.index }}</a><br>
+              {% endfor %}
+            {% else %}
+              -
+            {% endif %}
+          </td>
+          <td>
+            <form method="post" action="{{ url_for('update_application') }}" class="inline-form">
+              <input type="hidden" name="session_id" value="{{ app.session_id }}">
+              <input type="hidden" name="timestamp" value="{{ app.timestamp }}">
+              <select name="status">
+                <option value="under_review" {% if app.status=='under_review' %}selected{% endif %}>Under Review</option>
+                <option value="approved" {% if app.status=='approved' %}selected{% endif %}>Approved</option>
+                <option value="rejected" {% if app.status=='rejected' %}selected{% endif %}>Rejected</option>
+                <option value="left_midway" {% if app.status=='left_midway' %}selected{% endif %}>Left Midway</option>
+              </select>
+              <input type="text" name="rejection_reason" placeholder="Rejection reason" value="{{ app.rejection_reason }}">
+              <button type="submit">Save</button>
+            </form>
+          </td>
+        </tr>
+        {% else %}
+        <tr>
+          <td colspan="10" class="muted">No applications yet.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>
+

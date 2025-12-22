@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Chat Activity Logs</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+<body class="admin-body">
+  <header class="admin-header">
+    <h1>Chat Activity Logs</h1>
+    <nav>
+      <a href="{{ url_for('admin_dashboard') }}">Dashboard</a>
+      <a href="{{ url_for('admin_tune') }}">Tune My Chatbot</a>
+      <a href="{{ url_for('admin_logs') }}">Activity Logs</a>
+      <a href="{{ url_for('admin_logout') }}">Logout</a>
+    </nav>
+  </header>
+  <main class="admin-main">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Session</th>
+          <th>Type</th>
+          <th>Role</th>
+          <th>Text</th>
+          <th>Status</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for log in logs %}
+        <tr>
+          <td>{{ log.timestamp }}</td>
+          <td>{{ log.session_id }}</td>
+          <td>{{ log.event_type }}</td>
+          <td>{{ log.message_role }}</td>
+          <td>{{ log.message_text }}</td>
+          <td>{{ log.status }}</td>
+          <td><pre class="tiny">{{ log.details }}</pre></td>
+        </tr>
+        {% else %}
+        <tr><td colspan="7" class="muted">No logs yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>
+

@@ -1,0 +1,129 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',system-ui,sans-serif;}
+.main-content{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0f0f0f;color:#e5e7eb;}
+.content-wrapper{max-width:520px;padding:1.5rem;text-align:center;}
+h1{font-size:2rem;margin-bottom:0.5rem;}
+.description{font-size:0.95rem;line-height:1.6;color:#9ca3af;}
+#credgen-chat-root{position:fixed;bottom:24px;right:24px;z-index:1000;}
+.credgen-chatbox{position:absolute;bottom:80px;right:0;width:380px;height:500px;background:#111111;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.4);display:none;flex-direction:column;overflow:hidden;color:#f5f5f5;border:1px solid #333333;}
+.credgen-chatbox[aria-hidden="false"]{display:flex;}
+.credgen-header{background:#1a1a1a;color:white;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333333;}
+.credgen-header-info{display:flex;flex-direction:column;}
+.credgen-title{font-weight:600;font-size:18px;color:#ffffff;}
+.credgen-subtitle{font-size:12px;color:#888888;margin-top:2px;}
+.credgen-header-controls{display:flex;gap:8px;}
+.credgen-control-btn{background:none;border:none;color:#888888;font-size:18px;cursor:pointer;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:6px;}
+.credgen-control-btn:hover{background:#2a2a2a;}
+.credgen-close-btn{background:none;border:none;color:#888888;font-size:28px;cursor:pointer;line-height:1;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:6px;}
+.credgen-close-btn:hover{background:#2a2a2a;}
+.credgen-messages,#credgen-messages{flex:1;display:flex;flex-direction:column;padding:20px;gap:16px;overflow-y:auto;background:#0a0a0a;}
+.credgen-messages::-webkit-scrollbar,#credgen-messages::-webkit-scrollbar{width:6px;}
+.credgen-messages::-webkit-scrollbar-track,#credgen-messages::-webkit-scrollbar-track{background:#1a1a1a;}
+.credgen-messages::-webkit-scrollbar-thumb,#credgen-messages::-webkit-scrollbar-thumb{background:#444444;border-radius:3px;}
+.credgen-messages::-webkit-scrollbar-thumb:hover,#credgen-messages::-webkit-scrollbar-thumb:hover{background:#555555;}
+.user-message{align-self:flex-end;background:#4f46e5;color:white;padding:12px 16px;border-radius:12px 12px 4px 12px;max-width:75%;margin-bottom:8px;word-wrap:break-word;}
+.user-message > div:first-child{line-height:1.5;white-space:pre-wrap;word-break:break-word;}
+.user-message .message-timestamp{font-size:10px;color:rgba(255,255,255,0.7);margin-top:6px;text-align:right;}
+.credgen-chatbox.fullscreen .user-message{max-width:50%;}
+.bot-message{align-self:flex-start;background:#1e1e1e;color:#e5e7eb;padding:12px 16px;border-radius:12px 12px 12px 4px;border:1px solid #333333;max-width:75%;margin-bottom:8px;word-wrap:break-word;}
+.bot-message > div:first-child{line-height:1.5;white-space:pre-wrap;word-break:break-word;}
+.bot-message .message-timestamp{font-size:10px;color:#888888;margin-top:6px;text-align:left;}
+.credgen-chatbox.fullscreen .bot-message{max-width:50%;}
+.user-message + .user-message,.bot-message + .bot-message{margin-top:4px;}
+.user-message + .bot-message,.bot-message + .user-message{margin-top:4px;}
+.credgen-attachments{display:none;padding:12px 16px;background:#222222;border-top:1px solid #333333;border-bottom:1px solid #333333;max-height:150px;overflow-y:auto;}
+.credgen-attachments::-webkit-scrollbar{width:6px;}
+.credgen-attachments::-webkit-scrollbar-track{background:#1a1a1a;}
+.credgen-attachments::-webkit-scrollbar-thumb{background:#444444;border-radius:3px;}
+.credgen-attachments::-webkit-scrollbar-thumb:hover{background:#555555;}
+.attachment-preview{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:#2a2a2a;border-radius:8px;margin-bottom:8px;border:1px solid #3a3a3a;}
+.attachment-preview:hover{background:#333333;border-color:#4f46e5;}
+.attachment-preview:last-child{margin-bottom:0;}
+.file-info{display:flex;align-items:center;gap:12px;flex:1;min-width:0;}
+.file-icon{font-size:22px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.05);border-radius:8px;flex-shrink:0;}
+.file-icon .fa-file-pdf{color:#e53e3e;}
+.file-icon .fa-file-image{color:#38a169;}
+.file-icon .fa-file-word{color:#2b6cb0;}
+.file-icon .fa-file-excel{color:#2a9d8f;}
+.file-icon .fa-file{color:#667eea;}
+.file-details{flex:1;min-width:0;}
+.file-name{font-size:14px;font-weight:500;color:#f5f5f5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:4px;}
+.file-size{font-size:12px;color:#888888;font-weight:400;}
+.remove-file{background:rgba(136,136,136,0.1);border:none;color:#888888;font-size:16px;cursor:pointer;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:6px;flex-shrink:0;}
+.remove-file:hover{color:#e53e3e;background:rgba(229,62,62,0.15);}
+.credgen-attach-btn{background:#2a2a2a;border:1px solid #444444;border-radius:8px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#888888;font-size:18px;flex-shrink:0;position:relative;}
+.credgen-attach-btn:hover{background:#333333;color:#667eea;border-color:#667eea;}
+.credgen-attach-btn.has-files{color:#667eea;border-color:#667eea;background:rgba(79,70,229,0.1);}
+.credgen-attach-btn.has-files:hover{background:rgba(79,70,229,0.2);}
+.credgen-attach-btn.has-files::after{content:attr(data-count);position:absolute;top:-6px;right:-6px;background:#4f46e5;color:white;font-size:10px;font-weight:600;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #1a1a1a;}
+.file-attachment-message{padding:14px 16px;margin-bottom:12px;border-radius:12px 12px 12px 4px;max-width:75%;word-wrap:break-word;}
+.file-attachment-message.bot{align-self:flex-start;background:rgba(42,42,42,0.9);border:1px solid #333333;border-left:3px solid #4f46e5;}
+.file-attachment-message.user{align-self:flex-end;margin-left:auto;background:rgba(79,70,229,0.15);border:1px solid rgba(79,70,229,0.3);border-right:3px solid #4f46e5;border-left:none;border-radius:12px 12px 4px 12px;}
+.credgen-chatbox.fullscreen .file-attachment-message{max-width:50%;}
+.file-message-header{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-weight:600;font-size:14px;}
+.file-attachment-message.bot .file-message-header{color:#667eea;}
+.file-attachment-message.user .file-message-header{color:#a78bfa;}
+.file-message-header i{font-size:16px;}
+.file-list{font-size:13px;line-height:1.6;white-space:normal;word-break:break-word;padding:10px;border-radius:6px;margin-top:6px;}
+.file-attachment-message.bot .file-list{background:rgba(0,0,0,0.3);color:#cbd5e0;}
+.file-attachment-message.user .file-list{background:rgba(79,70,229,0.1);color:#e9d5ff;}
+.file-list-item{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.file-list-item:last-child{border-bottom:none;}
+.file-list-icon{font-size:14px;width:20px;flex-shrink:0;}
+.file-attachment-message.bot .file-list-icon{color:#667eea;}
+.file-attachment-message.user .file-list-icon{color:#a78bfa;}
+.file-list-name{flex:1;font-size:13px;font-weight:500;}
+.file-attachment-message.bot .file-list-name{color:#e5e7eb;}
+.file-attachment-message.user .file-list-name{color:#f3e8ff;}
+.file-list-size{font-size:11px;color:#888888;font-weight:400;}
+.credgen-input-row{display:flex;padding:16px;gap:8px;background:#1a1a1a;border-top:1px solid #333333;align-items:center;margin-top:auto;}
+.input-controls{display:flex;flex:1;gap:8px;}
+#credgen-input{flex:1;padding:12px 16px;border:1px solid #444444;border-radius:8px;font-family:'Inter',sans-serif;font-size:14px;background:#2a2a2a;color:#f5f5f5;min-width:0;transition:border-color 0.2s,background 0.2s;}
+#credgen-input:focus{outline:none;border-color:#667eea;background:#2d2d2d;}
+#credgen-input::placeholder{color:#888888;}
+.credgen-send-btn{background:#4f46e5;color:white;border:none;padding:12px 20px;border-radius:8px;font-family:'Inter',sans-serif;font-weight:500;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:background 0.2s;}
+.credgen-send-btn:hover{background:#4338ca;}
+.credgen-send-btn:disabled{opacity:0.6;cursor:not-allowed;}
+.credgen-toggle-btn{width:60px;height:60px;outline:none;border-radius:50%;background:#4f46e5;border:none;color:white;font-size:24px;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;}
+.credgen-toggle-btn:hover{background:#4338ca;}
+.credgen-toggle-btn i{font-size:22px;}
+.credgen-chatbox.fullscreen{position:fixed !important;top:0 !important;left:0 !important;width:100vw !important;height:100vh !important;max-width:none !important;max-height:none !important;border-radius:0 !important;bottom:auto !important;right:auto !important;z-index:9999 !important;}
+.credgen-chatbox.fullscreen .credgen-messages{max-height:none;flex:1;}
+.credgen-chatbox.fullscreen .user-message,.credgen-chatbox.fullscreen .bot-message,.credgen-chatbox.fullscreen .file-attachment-message{max-width:50%;}
+.typing-indicator {display: flex;gap: 5px;padding: 16px 20px;align-self: flex-start;background: #1e1e1e;border-radius: 12px 12px 12px 4px;border: 1px solid #333333;margin-bottom: 8px;width: fit-content;align-items: center;min-height: 48px;}
+.typing-dot {width: 6px;height: 6px;background: #888888;border-radius: 50%;animation: typing-bounce 1.4s infinite ease-in-out both;}
+.typing-dot:nth-child(1) {animation-delay: -0.32s;}
+.typing-dot:nth-child(2) {animation-delay: -0.16s;}
+@keyframes typing-bounce {
+    0%, 80%, 100% {
+        transform: scale(0.6);
+        opacity: 0.5;
+    }
+    40% {
+        transform: scale(1);
+        opacity: 1;
+        background: #4f46e5; /* Highlight color at peak */
+    }
+}
+.credgen-quick-msg-btn{background:#2a2a2a;border:1px solid #444444;border-radius:8px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#888888;font-size:18px;flex-shrink:0;position:relative;transition:all 0.2s;}
+.credgen-quick-msg-btn:hover{background:#333333;color:#667eea;border-color:#667eea;}
+.credgen-quick-msg-dropdown{display:none;position:absolute;bottom:100%;right:0;margin-bottom:8px;width:220px;background:#1a1a1a;border:1px solid #333333;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,0.3);z-index:1001;max-height:300px;overflow-y:auto;}
+.credgen-quick-msg-dropdown::-webkit-scrollbar{width:6px;}
+.credgen-quick-msg-dropdown::-webkit-scrollbar-track{background:#1a1a1a;}
+.credgen-quick-msg-dropdown::-webkit-scrollbar-thumb{background:#444444;border-radius:3px;}
+.credgen-quick-msg-container{position:relative;}
+.quick-msg-item{padding:12px 16px;color:#e5e7eb;cursor:pointer;border-bottom:1px solid #333333;font-size:14px;transition:background 0.2s,color 0.2s;}
+.quick-msg-item:last-child{border-bottom:none;}
+.quick-msg-item:hover{background:#2a2a2a;color:#667eea;}
+.credgen-clear-btn{background:none;border:none;color:#888888;font-size:16px;cursor:pointer;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:6px;transition:all 0.2s;}
+.credgen-clear-btn:hover{background:#2a2a2a;color:#e53e3e;}
+.credgen-control-btn{transition:all 0.2s;}
+.credgen-overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:transparent;z-index:999;display:none;}
+.credgen-chatbox[aria-hidden="false"] + .credgen-overlay{display:block;}
+@media (max-width:480px){.credgen-chatbox{width:90vw;right:5vw;}.file-name{max-width:180px;}.user-message,.bot-message,.file-attachment-message{max-width:85%;}.credgen-quick-msg-dropdown{width:180px;}}
+@media (max-height:600px){.credgen-chatbox.fullscreen .credgen-messages{max-height:none;}}
+.credgen-input-row > *:nth-child(1){flex-shrink:0;} /* attach button */
+.credgen-input-row > *:nth-child(2){flex:1;min-width:0;} /* input */
+.credgen-input-row > *:nth-child(3){flex-shrink:0;} /* quick msg button container */
+.credgen-input-row > *:nth-child(4){display:none !important;} /* hidden file input */
+.credgen-input-row > *:nth-child(5){flex-shrink:0;} /* send button */

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tune My Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+<body class="admin-body">
+  <header class="admin-header">
+    <h1>Tune My Chatbot</h1>
+    <nav>
+      <a href="{{ url_for('admin_dashboard') }}">Dashboard</a>
+      <a href="{{ url_for('admin_tune') }}">Tune My Chatbot</a>
+      <a href="{{ url_for('admin_logs') }}">Activity Logs</a>
+      <a href="{{ url_for('admin_logout') }}">Logout</a>
+    </nav>
+  </header>
+  <main class="admin-main">
+    <section class="card">
+      <h2>Add Bank Context</h2>
+      <p>
+        Describe your bank, loan products, eligibility rules, competitive advantages, and tone of voice.
+        You can also attach internal documents (PDFs, etc.) that describe your offerings.
+      </p>
+      <form method="post" enctype="multipart/form-data">
+        <br>
+        <p>Text description:</p><br>
+        <textarea name="description" rows="5" placeholder="e.g., We are a mid-size retail bank specializing in quick personal loans..."></textarea>
+        <br><br>
+        <p>Attach contextual file (optional):</p><br>
+        <input type="file" name="file">
+        <br><br>
+        <button type="submit">Save Context</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2>Existing Context Entries</h2>
+        <form method="post" action="{{ url_for('admin_tune_clear') }}" onsubmit="return confirm('Are you sure you want to clear all context?');">
+          <button type="submit" style="background-color: #ef4444;">Clear All Context</button>
+        </form>
+      </div>
+      <br>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Added At</th>
+            <th>Admin</th>
+            <th>Description</th>
+            <th>File</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in items %}
+          <tr>
+            <td>{{ item.timestamp }}</td>
+            <td>{{ item.admin }}</td>
+            <td>{{ item.content }}</td>
+            <td>
+              {% if item.filename %}
+                <a href="{{ url_for('uploaded_file', filename=item.filename) }}" target="_blank">{{ item.filename }}</a>
+              {% else %}
+                -
+              {% endif %}
+            </td>
+          </tr>
+          {% else %}
+          <tr><td colspan="4" class="muted">No context added yet.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
