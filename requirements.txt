@@ -1,30 +1,27 @@
-# --- Core Backend and Server ---
+# === CORE ===
 Flask==3.0.0
 Flask-CORS==4.0.0
-gunicorn  # For production deployment (optional for local testing)
-requests  # Required for OpenRouter service
+gunicorn==21.2.0
+requests==2.32.5
 
-# --- NLP and Master Agent ---
-# Used by MasterAgent for intent classification and conversation flow
-sentence-transformers==2.7.0  # Or the latest compatible version
-transformers==4.38.1          # Must be compatible with sentence-transformers
+# === NLP & ML ===
+sentence-transformers==2.7.0
+transformers==4.38.1
 numpy==1.26.4
-pandas==2.2.1                # Required for UnderwritingAgent data preparation
+pandas==2.2.1
+scikit-learn==1.7.2
+xgboost==2.0.3
+pyod==2.0.6
+joblib==1.4.0
 
-# --- Machine Learning Agents (Underwriting & Fraud) ---
-scikit-learn==1.7.2           # Base ML library for pipelines and preprocessing
-xgboost==2.0.3                # Specified for the Underwriting Model [cite: 237]
-pyod==1.1.0                   # Specified for the Fraud Analysis Agent [cite: 238]
-#pickle
-joblib
-
-# --- Documentation Agent (PDF Generation) ---
-# Used by pdf_generator.py to create the sanction letter
+# === DOCUMENTATION ===
 reportlab==4.0.8
 
-# --- Utility ---
-asyncio
-pathlib
-python-dotenv
-google-generativeai
-rapidfuzz
+# === UTILITIES ===
+python-dotenv==1.0.1
+google-generativeai==0.3.2
+rapidfuzz==3.8.3
+
+# === SETUP ===
+setuptools==75.1.0
+wheel==0.43.0
