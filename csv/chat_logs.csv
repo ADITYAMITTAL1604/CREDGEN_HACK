@@ -1,1 +1,35 @@
 timestamp,session_id,event_type,message_role,message_text,status,details
+2026-01-09T10:56:49.491353,web-431q265m05gmk6rgy4i,message,user,i want a loan,,{}
+2026-01-09T10:57:31.365613,web-431q265m05gmk6rgy4i,message,assistant,"To proceed, How much loan amount are you looking for? (e.g., 5 lakhs, ₹500000) [Progress: 10%]",,"{""worker"": ""none"", ""action"": null, ""stage"": ""collecting_details"", ""progress"": 10}"
+2026-01-09T10:57:49.238954,web-431q265m05gmk6rgy4i,message,user,2000000,,{}
+2026-01-09T10:57:49.272319,web-431q265m05gmk6rgy4i,message,assistant,"To proceed, What is your annual/monthly income? (e.g., 8 LPA, ₹50,000 per month) [Progress: 10%]",,"{""worker"": ""none"", ""action"": null, ""stage"": ""collecting_details"", ""progress"": 10}"
+2026-01-09T10:58:12.783456,web-431q265m05gmk6rgy4i,message,user,210000,,{}
+2026-01-09T10:58:12.809375,web-431q265m05gmk6rgy4i,message,assistant,"To proceed, What is your annual/monthly income? (e.g., 8 LPA, ₹50,000 per month) [Progress: 10%]",,"{""worker"": ""none"", ""action"": null, ""stage"": ""collecting_details"", ""progress"": 10}"
+2026-01-09T10:58:26.233168,web-431q265m05gmk6rgy4i,message,user,210000 per month,,{}
+2026-01-09T10:58:26.259642,web-431q265m05gmk6rgy4i,message,assistant,"To proceed, What is your age? [Progress: 10%]",,"{""worker"": ""none"", ""action"": null, ""stage"": ""collecting_details"", ""progress"": 10}"
+2026-01-09T10:58:39.009035,web-431q265m05gmk6rgy4i,message,user,24,,{}
+2026-01-09T10:58:39.043063,web-431q265m05gmk6rgy4i,message,assistant,"To proceed, For how many months/years would you like the loan? (e.g., 3 years, 36 months) [Progress: 10%]",,"{""worker"": ""none"", ""action"": null, ""stage"": ""collecting_details"", ""progress"": 10}"
+2026-01-09T10:58:44.434808,web-431q265m05gmk6rgy4i,message,user,5,,{}
+2026-01-09T10:58:44.462388,web-431q265m05gmk6rgy4i,message,assistant,"To proceed, For how many months/years would you like the loan? (e.g., 3 years, 36 months) [Progress: 10%]",,"{""worker"": ""none"", ""action"": null, ""stage"": ""collecting_details"", ""progress"": 10}"
+2026-01-09T10:58:54.197148,web-431q265m05gmk6rgy4i,message,user,5 years,,{}
+2026-01-09T10:58:54.233910,web-431q265m05gmk6rgy4i,message,assistant,"To proceed, What is your full name? [Progress: 10%]",,"{""worker"": ""none"", ""action"": null, ""stage"": ""collecting_details"", ""progress"": 10}"
+2026-01-09T10:59:01.820379,web-431q265m05gmk6rgy4i,message,user,ADITYA MITTAL,,{}
+2026-01-09T10:59:01.850721,web-431q265m05gmk6rgy4i,message,assistant,"To proceed, What is your full name? [Progress: 10%]",,"{""worker"": ""none"", ""action"": null, ""stage"": ""collecting_details"", ""progress"": 10}"
+2026-01-09T10:59:11.623263,web-431q265m05gmk6rgy4i,message,user,aditya,,{}
+2026-01-09T10:59:11.652672,web-431q265m05gmk6rgy4i,message,assistant,"To proceed, What is your full name? [Progress: 10%]",,"{""worker"": ""none"", ""action"": null, ""stage"": ""collecting_details"", ""progress"": 10}"
+2026-01-09T10:59:22.437951,web-431q265m05gmk6rgy4i,message,user,aditya mittal,,{}
+2026-01-09T10:59:22.437951,web-431q265m05gmk6rgy4i,message,assistant,"To proceed, What is your full name? [Progress: 10%]",,"{""worker"": ""none"", ""action"": null, ""stage"": ""collecting_details"", ""progress"": 10}"
+2026-01-09T10:59:28.862004,web-431q265m05gmk6rgy4i,message,user,abc,,{}
+2026-01-09T10:59:28.900103,web-431q265m05gmk6rgy4i,message,assistant,"To proceed, What is your full name? [Progress: 10%]",,"{""worker"": ""none"", ""action"": null, ""stage"": ""collecting_details"", ""progress"": 10}"
+2026-01-09T10:59:40.662557,web-431q265m05gmk6rgy4i,message,user,my name is aditya mittal,,{}
+2026-01-09T10:59:40.694037,web-431q265m05gmk6rgy4i,message,assistant,"To proceed, What is your employment type? (Salaried/Self-employed/Business) [Progress: 10%]",,"{""worker"": ""none"", ""action"": null, ""stage"": ""collecting_details"", ""progress"": 10}"
+2026-01-09T10:59:47.046456,web-431q265m05gmk6rgy4i,message,user,salaried,,{}
+2026-01-09T10:59:47.077430,web-431q265m05gmk6rgy4i,message,assistant,For KYC verification: Please provide your PAN card number (format: ABCDE1234F) [Progress: 30%],,"{""worker"": ""none"", ""action"": null, ""stage"": ""kyc_collection"", ""progress"": 30}"
+2026-01-09T10:59:57.884861,web-431q265m05gmk6rgy4i,message,user,abccp8765l,,{}
+2026-01-09T10:59:57.911730,web-431q265m05gmk6rgy4i,message,assistant,For KYC verification: Please provide your Aadhaar number (12 digits) [Progress: 30%],,"{""worker"": ""none"", ""action"": null, ""stage"": ""kyc_collection"", ""progress"": 30}"
+2026-01-09T11:00:07.854145,web-431q265m05gmk6rgy4i,message,user,999999999999,,{}
+2026-01-09T11:00:07.885595,web-431q265m05gmk6rgy4i,message,assistant,For KYC verification: Please provide your complete residential address [Progress: 30%],,"{""worker"": ""none"", ""action"": null, ""stage"": ""kyc_collection"", ""progress"": 30}"
+2026-01-09T11:00:16.115492,web-431q265m05gmk6rgy4i,message,user,abc new delhi,,{}
+2026-01-09T11:00:16.141380,web-431q265m05gmk6rgy4i,message,assistant,For KYC verification: Please provide your complete residential address [Progress: 30%],,"{""worker"": ""none"", ""action"": null, ""stage"": ""kyc_collection"", ""progress"": 30}"
+2026-01-09T11:00:39.332038,web-431q265m05gmk6rgy4i,message,user,"my address is abc road , new delhi",,{}
+2026-01-09T11:00:39.367877,web-431q265m05gmk6rgy4i,message,assistant,🛡️ Running security verification...,,"{""worker"": ""fraud"", ""action"": null, ""stage"": ""fraud_check"", ""progress"": 40}"

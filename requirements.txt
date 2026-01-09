@@ -15,7 +15,7 @@ pandas==2.2.1                # Required for UnderwritingAgent data preparation
 scikit-learn==1.7.2           # Base ML library for pipelines and preprocessing
 xgboost==2.0.3                # Specified for the Underwriting Model [cite: 237]
 pyod==1.1.0                   # Specified for the Fraud Analysis Agent [cite: 238]
-pickle
+#pickle
 joblib
 
 # --- Documentation Agent (PDF Generation) ---
