@@ -20,7 +20,7 @@ reportlab==4.0.8
 # === UTILITIES ===
 python-dotenv==1.0.1
 google-generativeai==0.3.2
-rapidfuzz==3.8.3
+rapidfuzz==3.14.3  # CHANGED FROM 3.8.3 TO 3.14.3
 
 # === SETUP ===
 setuptools==75.1.0
